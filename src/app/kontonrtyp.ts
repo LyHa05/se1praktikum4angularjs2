@@ -1,4 +1,4 @@
-export class Konto {
+export class KontoNrTyp {
   constructor(
     public kontoNummer: String) { }
 }

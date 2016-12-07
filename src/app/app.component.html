@@ -23,3 +23,31 @@ Fehler: {{errorMessage}}
   </form>
 </div>
 
+<h1>
+	Tabelle mit Buchungen von Konto
+</h1>
+<h2>
+	Fehler: {{errorMessage}}
+</h2>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Betrag</th>
+	<tr>
+  <tr *ngFor="let buchungsPosition of buchungsPositionen">
+    <td>{{buchungsPosition.id}}</td>
+    <td>{{buchungsPosition.gebuchterBetrag}}</td>
+  <tr>
+</table>
+
+<div class="container">
+  <h1>Ueberweisungsformular</h1>
+  <form (ngSubmit)="ueberweisen()" #kontoForm="ngForm">
+    <div class="form-group">
+      <label for="betrag">Betrag</label>
+      <input type="text" class="form-control" id="gebuchterBetrag" [(ngModel)]="newBuchungsPosition.gebuchterBetrag" name="gebuchterBetrag" required>
+    </div>
+    <button type="submit" class="btn btn-default" [disabled]="!kontoForm.form.valid">Ueberweisen</button>
+  </form>
+</div>

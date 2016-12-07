@@ -9,7 +9,7 @@ export class KontoService {
 
   constructor(private http: Http) { }
 
-  getKontos(): Observable<Konto[]> {
+  getKonten(): Observable<Konto[]> {
     let konten$ = this.http
       .get(`${this.baseUrl}/konten`, {headers: this.getHeaders()})
       .map(mapKonten)
@@ -17,7 +17,7 @@ export class KontoService {
     return konten$;
   }
 
-createCustomer(konto: Konto) : Observable<Response> {
+createKonto(konto: Konto) : Observable<Response> {
     var dataObj = { id : konto.id, _csrf: undefined};
     let result$ = this.http
       .post(`${this.baseUrl}/konten`, dataObj)
