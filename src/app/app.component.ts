@@ -19,7 +19,8 @@ export class AppComponent {
   isLoading = true;
 
   newCustomer = new Customer(0, '');
-  newBuchungsPosition = new BuchungsPosition(0, 0);
+  newBuchungsPosition = new BuchungsPosition(0, null);
+  betrag = 0;
 
   constructor(private customerService: CustomerService,
               private buchungspositionService: BuchungspositionService) { }
@@ -64,7 +65,8 @@ export class AppComponent {
         /* happy path */ () => { },
         /* error path */ e => this.errorMessage = e,
         /* onComplete */ () => {
-          this.newBuchungsPosition.gebuchterBetrag = 0;
+          /* setzt Textfeld leer */
+          this.newBuchungsPosition.gebuchterBetrag = null;
           this.reloadBuchungsPositionen();
         });
   }

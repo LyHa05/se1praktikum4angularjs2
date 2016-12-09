@@ -18,9 +18,9 @@ export class BuchungspositionService {
   }
 
   createBuchhungsPosition(buchungsPosition: BuchungsPosition) : Observable<Response>{
-    var dataObj = { name : buchungsPosition.id, _csrf: undefined};
+    //var dataObj = { name : buchungsPosition.gebuchterBetrag, _csrf: undefined};
     let result$ = this.http
-      .post(`${this.baseUrl}/buchungspositionen`, dataObj)
+      .post(`${this.baseUrl}/buchungspositionen`, buchungsPosition)
       .catch(handleError);
     return result$;
   }
